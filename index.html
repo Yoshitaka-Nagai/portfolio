@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Oswald:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://use.typekit.net/xnv7gxf.css">
   <link href="css/style.css" rel="stylesheet" media="all">
@@ -41,14 +41,21 @@
     </header>
     <main class="main">
       <div class="mv">
-        <p id="mv__catchcopy-ja" class="mv__catchcopy-ja">
-          <span class="mv__catchcopy-ja-main">未来へ突き進め</span>
-          <span class="mv__catchcopy-ja-sub">前進することでしか、未来は変わらない</span>
-        </p>
-        <p id="mv__catchcopy-en" class="mv__catchcopy-en">
-          <span class="mv__catchcopy-en-main">ADVANCE TO</span>
-          <span class="mv__catchcopy-en-main">THE NEXT LEVEL</span>
-        </p>
+        <video class="mv__video" playsinline muted autoplay loop>
+          <source src="images/top/mv_video.mp4" type="video/mp4">
+          <p>動画を再生できる環境ではありません。</p>
+        </video>
+        <div class="mv__catchcopy-ja-wrap">
+          <p id="mv__catchcopy-ja" class="mv__catchcopy-ja">
+            <span class="mv__catchcopy-ja-big">未来へ<br class="mv__br">突き進め</span><br>前進することでしか、<br
+              class="mv__br">未来は変わらない
+          </p>
+        </div>
+        <div class="mv__catchcopy-en-wrap">
+          <picture>
+            <img id="mv__catchcopy-en-img" class="mv__catchcopy-en-img" src="images/top/mv_catchcopy-en_sp.png" alt="">
+          </picture>
+        </div>
         <div id="mv__scroll-btn" class="mv__scroll-btn">
           <p class="mv__scroll-txt">
             SCROLL<br>
