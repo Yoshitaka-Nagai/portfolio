@@ -1,0 +1,27 @@
+// settingフォルダの変数を読み込みます
+
+@use "../setting" as *;
+
+//スライドメニュー表示アニメーションsp
+@keyframes zoomUpSp {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    width: 3000px;
+    height: 3000px;
+  }
+}
+
+//スライドメニュー表示アニメーションtab
+@keyframes zoomUpTab {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    width: 5000px;
+    height: 5000px;
+  }
+}
