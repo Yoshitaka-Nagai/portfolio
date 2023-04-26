@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setTimeout(() => {
     document.getElementById('mv__catchcopy-ja').classList.add('active');
     document.getElementById('mv__catchcopy-en-img').classList.add('active');
-    //document.getElementById('mv__scroll-btn').classList.add('active');
+    document.getElementById('mv__scroll-btn').classList.add('active');
   }, 1000);
 
 
