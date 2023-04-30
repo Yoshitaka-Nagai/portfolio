@@ -25,3 +25,31 @@
     height: 5000px;
   }
 }
+
+@keyframes arrowMove {
+  0% {
+    top: 10px;
+  }
+
+  100% {
+    top: 40px;
+  }
+}
+
+@keyframes arrowHide {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

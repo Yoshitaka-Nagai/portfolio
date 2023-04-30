@@ -6,22 +6,35 @@
   position: fixed;
   width: 100%;
   height: 80px;
-  padding: 0 20px;
-  background: $headerBgColor;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  background: $headerBgColor;
   z-index: 10;
-
-  @media screen and (min-width: 768px) {
-    padding: 0 50px;
-  }
 
   @media screen and (min-width: 1024px) {
     height: 100px;
   }
 
-  &__logo {}
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 50px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 0 0 50px;
+    }
+  }
+
+  &__logo {
+  }
 
   &__logo-link {
     display: block;

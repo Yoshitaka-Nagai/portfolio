@@ -2,3 +2,15 @@
 
 @use "../setting" as *;
 
+@mixin contents-width{
+  padding: 0 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 0 80px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}

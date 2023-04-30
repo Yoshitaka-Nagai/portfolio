@@ -12,39 +12,41 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@400;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://use.typekit.net/xnv7gxf.css">
   <link href="css/style.css" rel="stylesheet" media="all">
 </head>
 
 <body id="top">
   <div class="wrapper">
     <header id="header" class="header">
-      <h1 class="header__logo">
-        <a href="index.html" id="header__logo-link" class="header__logo-link">PORTFOLIO</a>
-      </h1>
-      <div id="menu-btn" class="menu-btn"></div>
-      <nav id="gnav" class="gnav">
-        <ul class="gnav__wrap">
-          <li class="gnav__list"><a href="" class="gnav__link">HOME</a></li>
-          <li class="gnav__list"><a href="" class="gnav__link">WORKS</a></li>
-          <li class="gnav__list"><a href="" class="gnav__link">CONTACT</a></li>
-          <li class="gnav__list">
-            <a href="" class="gnav__link">
-              <picture>
-                <source media="(min-width: 1024px)" srcset="images/common/icon_github_white.svg">
-                <img class="gnav__icon" src="images/common/icon_github_black.svg" alt="githubアイコン">
-              </picture>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <a href="index.html" id="header__logo-link" class="header__logo-link">PORTFOLIO</a>
+        </h1>
+        <div id="menu-btn" class="menu-btn"></div>
+        <nav id="gnav" class="gnav">
+          <ul class="gnav__wrap">
+            <li class="gnav__list"><a href="index.html" class="gnav__link">HOME</a></li>
+            <li class="gnav__list"><a href="#works" class="gnav__link">WORKS</a></li>
+            <li class="gnav__list"><a href="#contact" class="gnav__link">CONTACT</a></li>
+            <li class="gnav__list">
+              <a href="" class="gnav__link" target="_blank">
+                <picture>
+                  <source media="(min-width: 1024px)" srcset="images/common/icon_github_white.svg">
+                  <img class="gnav__icon" src="images/common/icon_github_black.svg" alt="githubアイコン">
+                </picture>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main class="main">
       <div class="mv">
-        <video class="mv__video" playsinline muted autoplay loop>
-          <source src="images/top/mv_video.mp4" type="video/mp4">
-          <p>動画を再生できる環境ではありません。</p>
-        </video>
+        <div class="mv__video-wrap">
+          <video class="mv__video" playsinline muted autoplay loop>
+            <source src="images/top/mv_video.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="mv__catchcopy-ja-wrap">
           <p id="mv__catchcopy-ja" class="mv__catchcopy-ja">
             <span class="mv__catchcopy-ja-big">未来へ<br class="mv__br">突き進め</span><br>前進することでしか、<br
@@ -54,13 +56,50 @@
         <picture>
           <source media="(min-width: 1024px)" srcset="images/top/mv_catchcopy-en.png">
           <source media="(min-width: 768px)" srcset="images/top/mv_catchcopy-en_tab.png">
-          <img id="mv__catchcopy-en-img" class="mv__catchcopy-en-img" src="images/top/mv_catchcopy-en_sp.png" alt="">
+          <img id="mv__catchcopy-en-img" class="mv__catchcopy-en-img" src="images/top/mv_catchcopy-en_sp.png"
+            alt="ADVANCE TO THE NEXT LEVEL">
         </picture>
-        <div id="mv__scroll-btn" class="mv__scroll-btn">
-          <p class="mv__scroll-txt">
-            SCROLL<br>
-            DOWN
-          </p>
+        <div class="mv__btn-wrap">
+          <div id="mv__scroll-btn" class="mv__scroll-btn">
+            <p class="mv__scroll-txt">
+              SCROLL<br>
+              DOWN
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="message">
+        <div class="message__inner">
+          <div class="message__txt-wrap">
+            <p class="message__txt">
+              前進あるのみ。
+            </p>
+            <p class="message__txt">
+              未知なる道を進むことが怖くても、<br class="message__br">
+              チャレンジし続ける。<br>
+              失敗や困難は必ずあるが、<br class="message__br">
+              それらを乗り越える。
+            </p>
+            <p class="message__txt">
+              日々前進。
+            </p>
+            <p class="message__txt">
+              過去の自分を振り返っても<br class="message__br">
+              何も変えることはできない。<br>
+              だからこそ、未来へ向けて、<br class="message__br">
+              今を生きることが大切だ。
+            </p>
+            <p class="message__txt">
+              Advance to the next level.
+            </p>
+            <p class="message__txt">
+              常に自分自身を高めていく。<br>
+              自分の弱点や課題を見つけ、<br class="message__br">
+              克服するために努力する。<br>
+              より良い未来に向けて<br class="message__br">
+              進んでいくことができると信じている。
+            </p>
+          </div>
         </div>
       </div>
     </main>
@@ -68,7 +107,6 @@
 
     </footer>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
