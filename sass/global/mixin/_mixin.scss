@@ -2,7 +2,8 @@
 
 @use "../setting" as *;
 
-@mixin contents-width{
+//コンテンツ幅
+@mixin contents-width {
   padding: 0 20px;
 
   @media screen and (min-width: 768px) {
@@ -10,7 +11,25 @@
   }
 
   @media screen and (min-width: 1024px) {
+    width: 95%;
     max-width: 1600px;
     margin: 0 auto;
+    padding: 0;
+  }
+}
+
+//見出しスタイル
+@mixin title($align: left) {
+  margin-bottom: 32px;
+  color: $white;
+  font-family: $oswald;
+  font-size: 62px;
+  font-weight: 700;
+  line-height: 1;
+  text-align: $align;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 80px;
+    font-size: 130px;
   }
 }
