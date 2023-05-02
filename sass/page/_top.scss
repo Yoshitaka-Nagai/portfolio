@@ -517,12 +517,15 @@
       justify-content: center;
       width: 300px;
       height: 140px;
-      background: #a5a5a5;
 
       @media screen and (min-width: 768px) {
         margin-right: 40px;
         align-self: flex-start;
       }
+    }
+
+    &__icon-svg {
+      
     }
   }
 
