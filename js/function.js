@@ -39,6 +39,15 @@ document.addEventListener('DOMContentLoaded', function () {
     headerLogo.classList.remove('black');
   }
 
+
+
+
+
+
+
+
+
+
   class WorksItem {
     constructor(e) {
       this.txt = e.querySelector('.works__txt-wrap');
