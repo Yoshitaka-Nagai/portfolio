@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //ブレイクポイント：PC
   const breakPointPc = 1024;
 
+  //ヘッダー
+  const header = document.getElementById('header');
+
   //ヘッダーロゴ
   const headerLogo = document.getElementById('header__logo-link');
 
@@ -13,6 +16,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //メニューボタン
   const menuBtn = document.getElementById('menu-btn');
+
+  //
+  let currentScrollPosition = 0;
+
+  //
+  window.addEventListener('scroll', function () {
+    const scrollPosition = document.documentElement.scrollTop;
+    if (currentScrollPosition < scrollPosition) {
+      header.classList.add('hidden');
+    } else {
+      header.classList.remove('hidden');
+    }
+
+    currentScrollPosition = scrollPosition;
+  });
 
   //ウィンドウリサイズ時処理
   window.addEventListener('resize', function () {
