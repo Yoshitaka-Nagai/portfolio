@@ -1,0 +1,230 @@
+@use "../global" as *;
+
+#works {
+  .works-view {
+    margin-top: 100px;
+    padding: 0 20px;
+
+    @media screen and (min-width: 768px) {
+      margin-top: 120px;
+      padding: 0 80px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      margin: 176px auto 0;
+      padding: 0;
+      width: 90%;
+      max-width: 1160px;
+    }
+
+    &__box {
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 100px;
+        gap: 40px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 140px;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &__ttl {
+      color: $white;
+      font-family: $oswald;
+      font-size: 66px;
+      font-weight: 700;
+
+      @media screen and (min-width: 768px) {
+        font-size: 91px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        font-size: 190px;
+      }
+    }
+
+    &__filter-wrap {
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (min-width: 768px) {
+        justify-content: flex-start;
+        gap: 30px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        align-self: flex-end;
+      }
+    }
+
+    &__filter-btn {
+      cursor: pointer;
+      display: block;
+      padding: 10px 0;
+      color: $gray;
+      font-size: 13px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 7px;
+        width: 100%;
+        height: 1px;
+        background: $gray;
+        transform-origin: right;
+        transition: transform 0.4s;
+        transform: scaleX(0);
+      }
+
+      &.is-active {
+        color: $white;
+
+        &::before {
+          background: $white;
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
+
+    &__ul {
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      row-gap: 48px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 100px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        row-gap: 72px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        margin-bottom: 140px;
+        row-gap: 96px;
+      }
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style-type: none;
+
+      @media screen and (min-width: 768px) {
+        width: 48%;
+      }
+    }
+
+    &__link {
+      display: block;
+      overflow: hidden;
+
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &__img {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    &__name {
+      color: $white;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    &__tag-wrap {
+      display: flex;
+      gap: 20px;
+    }
+
+    &__tag {
+      color: $gray;
+      font-size: 11px;
+    }
+  }
+
+  .breadcrumb {
+    padding: 0 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 80px 24px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: calc(100% - 160px);
+        height: 1px;
+        background: $gray;
+      }
+    }
+
+    &__list {
+      list-style-type: none;
+      position: relative;
+
+      &:not(:last-of-type)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -15px;
+        width: 6px;
+        height: 6px;
+        border-top: 1px solid $gray;
+        border-right: 1px solid $gray;
+        transform: rotate(45deg) translateY(-50%);
+      }
+    }
+
+    &__link {
+      padding: 10px 0;
+      display: block;
+      color: $gray;
+      font-family: $oswald;
+      font-size: 13px;
+      text-decoration: none;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: 7px;
+        width: 100%;
+        height: 1px;
+        background: $gray;
+      }
+    }
+
+    &__txt {
+      color: $white;
+      font-family: $oswald;
+      font-size: 13px;
+    }
+  }
+}

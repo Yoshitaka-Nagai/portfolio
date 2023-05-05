@@ -17,7 +17,7 @@
 }
 
 //見出しスタイル
-@mixin title($align: left) {
+@mixin section-title($align: left) {
   margin-bottom: 32px;
   color: $white;
   font-family: $oswald;
