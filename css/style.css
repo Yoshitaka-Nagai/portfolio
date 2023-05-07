@@ -999,7 +999,6 @@ body {
   }
 }
 #top .works__scroll-outer {
-  position: relative;
   width: 100%;
   height: 100vh;
 }

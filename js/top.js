@@ -42,11 +42,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const items = [...document.querySelectorAll('.works__item')].map(e => new WorksItem(e));
   const total = items.length;
-  const itemOuter = document.querySelector('.works__scroll-outer');
+  const scrollOuter = document.getElementById('works__scroll-outer');
+  const navLinks = document.querySelectorAll('.works__nav-link');
   let currentIndex = -1;
+  let currentScroll;
+  let scrollToFunction;
 
   function updateIndex(index) {
-    if (currentIndex < 0) {
+    if (currentIndex === -1 && index === total) {
+      items[index - 1].show();
+      currentIndex = index - 1;
+      activeNavLink(currentIndex);
+    } else if (currentIndex === -1) {
       items[index].show();
       currentIndex = index;
       activeNavLink(currentIndex);
@@ -58,7 +65,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  const navLinks = document.querySelectorAll('.works__nav-link');
   function activeNavLink(activeIndex) {
     navLinks.forEach((e, index) => {
       if (index === activeIndex) {
@@ -70,9 +76,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function setScrollSetting(scrollValue) {
-    gsap.to(itemOuter, {
+    gsap.to(scrollOuter, {
       scrollTrigger: {
-        trigger: itemOuter,
+        trigger: scrollOuter,
         start: 'top top',
         end: `${total * scrollValue}`,
         scrub: true,
@@ -82,29 +88,53 @@ document.addEventListener('DOMContentLoaded', function () {
         onUpdate: (e) => {
           const index = Math.floor(e.progress * total);
           updateIndex(index);
+          currentScroll = e.progress * total * scrollValue;
         },
       }
+    });
+  }
+
+  function setScrollNavLink(scrollValue) {
+    scrollToFunction = (index, event) => {
+      event.preventDefault();
+      const scrollOuterPositon = scrollOuter.getBoundingClientRect().top + window.scrollY - currentScroll;
+
+      gsap.to(window, {
+        duration: 0.6,
+        ease: 'linear',
+        scrollTo: {
+          y: scrollOuterPositon,
+          offsetY: (index * -scrollValue) - 5,
+        }
+      });
+    };
+
+    gsap.utils.toArray('.works__nav-link').forEach((link, index) => {
+      link.onclick = scrollToFunction.bind(null, index);
     });
   }
 
   const mm = gsap.matchMedia();
 
   mm.add("(max-width: 767px)", () => {
-    const scrollValue = itemOuter.clientWidth;
+    const scrollValue = scrollOuter.clientWidth;
     setScrollSetting(scrollValue);
+    setScrollNavLink(scrollValue);
   });
 
   mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
-    const scrollValue = itemOuter.clientWidth;
+    const scrollValue = scrollOuter.clientWidth;
     setScrollSetting(scrollValue);
+    setScrollNavLink(scrollValue);
   });
 
   mm.add("(min-width: 1024px)", () => {
-    const scrollValue = itemOuter.clientWidth;
+    const scrollValue = scrollOuter.clientWidth * 0.8;
     setScrollSetting(scrollValue);
+    setScrollNavLink(scrollValue);
   });
 
-  updateIndex(0);
+
 
 
 
