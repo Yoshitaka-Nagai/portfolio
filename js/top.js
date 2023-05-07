@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const items = [...document.querySelectorAll('.works__item')].map(e => new WorksItem(e));
   const total = items.length;
   const itemOuter = document.querySelector('.works__scroll-outer');
-  let scrollValue = itemOuter.clientWidth;
   let currentIndex = -1;
 
   function updateIndex(index) {
@@ -70,27 +69,42 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  gsap.to(itemOuter, {
-    scrollTrigger: {
-      trigger: itemOuter,
-      start: 'top top',
-      end: `${total * scrollValue}`,
-      //markers: true,
-      scrub: true,
-      pin: true,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-      onUpdate: (e) => {
-        const index = Math.floor(e.progress * total);
-        updateIndex(index);
-      },
-    }
+  function setScrollSetting(scrollValue) {
+    gsap.to(itemOuter, {
+      scrollTrigger: {
+        trigger: itemOuter,
+        start: 'top top',
+        end: `${total * scrollValue}`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (e) => {
+          const index = Math.floor(e.progress * total);
+          updateIndex(index);
+        },
+      }
+    });
+  }
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(max-width: 767px)", () => {
+    const scrollValue = itemOuter.clientWidth;
+    setScrollSetting(scrollValue);
+  });
+
+  mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
+    const scrollValue = itemOuter.clientWidth;
+    setScrollSetting(scrollValue);
+  });
+
+  mm.add("(min-width: 1024px)", () => {
+    const scrollValue = itemOuter.clientWidth;
+    setScrollSetting(scrollValue);
   });
 
   updateIndex(0);
-
-
-
 
 
 
