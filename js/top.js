@@ -40,12 +40,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  //ビューポートの高さ
+  const windowHeight = window.innerHeight;
+
+  //
   const items = [...document.querySelectorAll('.works__item')].map(e => new WorksItem(e));
+
+  //
   const total = items.length;
+
+  //
   const scrollOuter = document.getElementById('works__scroll-outer');
+
+  //
   const navLinks = document.querySelectorAll('.works__nav-link');
+
+  //
+  const svgList = document.querySelectorAll('.skill__icon-svg');
+
+  //
   let currentIndex = -1;
+
+  //
   let currentScroll;
+
+  //
   let scrollToFunction;
 
   function updateIndex(index) {
@@ -114,6 +133,38 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  //スキルセクションのsvgアイコン初期化処理
+  function initSVG() {
+    svgList.forEach((svg) => {
+      svg.querySelectorAll('path').forEach((path) => {
+        const pathLength = path.getTotalLength();
+        path.style.strokeDashoffset = pathLength;
+        path.style.strokeDasharray = pathLength;
+        path.style.opacity = 1;
+      });
+    });
+  }
+
+  //スキルセクションのsvgアイコン描画処理
+  function drawSVG() {
+    const st = window.scrollY;
+    for (let i = 0; i < svgList.length; i++) {
+      const targetPos = svgList[i].getBoundingClientRect().top + st;
+      if (st > targetPos - windowHeight * 0.5) {
+        svgList[i].querySelectorAll('path').forEach((path) => {
+          path.style.transitionProperty = 'stroke-dashoffset';
+          path.style.transitionDuration = '2.5s';
+          path.style.transitionTimingFunction = 'ease-in-out';
+          path.style.strokeDashoffset = 0;
+        });
+      }
+    }
+  }
+
+  window.addEventListener('scroll', function () {
+    drawSVG();
+  });
+
   const mm = gsap.matchMedia();
 
   mm.add("(max-width: 767px)", () => {
@@ -133,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function () {
     setScrollSetting(scrollValue);
     setScrollNavLink(scrollValue);
   });
+
+  initSVG();
 
 
 

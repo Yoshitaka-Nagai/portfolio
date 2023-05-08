@@ -525,7 +525,11 @@
     }
 
     &__icon-svg {
-
+      path {
+        fill: none;
+        stroke: $paleGray;
+        opacity: 0;
+      }
     }
   }
 
