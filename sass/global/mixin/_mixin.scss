@@ -1,16 +1,16 @@
 @use "../setting" as *;
 
 //コンテンツ幅
-@mixin contents-width {
-  padding: 0 20px;
+@mixin contents-width($max-width: 1600px) {
+  padding: 0 calc(20 / 375 * 100%);
 
   @media screen and (min-width: 768px) {
-    padding: 0 80px;
+    padding: 0 calc(80 / 768 * 100%);
   }
 
   @media screen and (min-width: 1024px) {
-    width: 95%;
-    max-width: 1600px;
+    width: 90%;
+    max-width: $max-width;
     margin: 0 auto;
     padding: 0;
   }

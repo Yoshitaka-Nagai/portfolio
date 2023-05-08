@@ -2,19 +2,15 @@
 
 #works {
   .works-view {
+    @include contents-width(1160px);
     margin-top: 100px;
-    padding: 0 20px;
 
     @media screen and (min-width: 768px) {
       margin-top: 120px;
-      padding: 0 80px;
     }
 
     @media screen and (min-width: 1024px) {
       margin: 176px auto 0;
-      padding: 0;
-      width: 90%;
-      max-width: 1160px;
     }
 
     &__box {
@@ -170,18 +166,19 @@
 
     &__tag {
       color: $gray;
+      font-family: $oswald;
       font-size: 11px;
     }
   }
 
   .breadcrumb {
-    padding: 0 20px 24px;
+    padding: 0 calc(20 / 375 * 100%) 24px;
     display: flex;
     align-items: center;
     gap: 30px;
 
     @media screen and (min-width: 768px) {
-      padding: 0 80px 24px;
+      padding: 0 calc(80 / 768 * 100%) 24px;
       position: relative;
 
       &::before {
@@ -190,7 +187,7 @@
         left: 50%;
         bottom: 0;
         transform: translateX(-50%);
-        width: calc(100% - 160px);
+        width: calc(100% - calc(80 / 768 * 100% * 2));
         height: 1px;
         background: $gray;
       }
@@ -258,8 +255,11 @@
 
     &__txt {
       color: $white;
-      font-family: $oswald;
       font-size: 13px;
+
+      &.en {
+        font-family: $oswald;
+      }
     }
   }
 }

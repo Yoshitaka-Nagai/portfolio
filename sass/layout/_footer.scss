@@ -14,7 +14,7 @@
     gap: 30px;
 
     @media screen and (min-width: 768px) {
-      padding: 0 80px;
+      padding: 0 calc(80 / 768 * 100%);
       flex-direction: row;
       justify-content: space-between;
     }
