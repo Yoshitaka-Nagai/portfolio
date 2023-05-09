@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.add('opened');
       gnav.classList.add('opened');
       headerLogo.classList.add('black');
+
+      //メニューが開かれているときはスクロール禁止
+      document.addEventListener('touchmove', noScroll, { passive: false });
+      document.addEventListener('wheel', noScroll, { passive: false });
     }
   });
 
@@ -55,6 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
     menuBtn.classList.remove('opened');
     gnav.classList.remove('opened');
     headerLogo.classList.remove('black');
+
+    //スクロール禁止を解除
+    document.removeEventListener('touchmove', noScroll);
+    document.removeEventListener('wheel', noScroll);
+  }
+
+  function noScroll(e) {
+    e.preventDefault();
   }
 
 }, false);
