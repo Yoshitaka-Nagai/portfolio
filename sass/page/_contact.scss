@@ -94,7 +94,7 @@
       flex-direction: column;
       gap: 15px;
 
-      &:last-of-type{
+      &:last-of-type {
         margin-bottom: 0;
       }
 
@@ -177,10 +177,26 @@
       display: block;
       font-size: 12px;
       letter-spacing: 0.05em;
+      transition: 0.4s ease-out;
+
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+
+      &::-moz-foucus-inner {
+        border: none;
+        padding: 0;
+      }
+
+      &:hover {
+        background: $white;
+        color: $black;
+      }
 
       @media screen and (min-width: 768px) {
         padding: 40px 0;
-        font-size: 18px;
+        font-size: 16px;
       }
     }
   }

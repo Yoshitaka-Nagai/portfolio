@@ -214,36 +214,20 @@
     }
 
     &__link-works {
-      width: 80px;
-      height: 80px;
+      @include link-circle-btn(80px, 13px);
       position: absolute;
       left: 50%;
       bottom: 0;
       transform: translateX(-50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid $paleGray;
-      border-radius: 50%;
-      color: $white;
-      font-family: $oswald;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      text-decoration: none;
 
       @media screen and (min-width: 768px) {
-        width: 130px;
-        height: 130px;
+        @include link-circle-btn(130px, 18px);
         position: static;
-        font-size: 18px;
         transform: none;
       }
 
       @media screen and (min-width: 1024px) {
-        width: 223px;
-        height: 223px;
-        font-size: 24px;
+        @include link-circle-btn(223px, 24px);
       }
     }
   }

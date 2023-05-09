@@ -161,6 +161,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  //mvのスクロールボタンのスムーススクロール
+  document.getElementById('mv__scroll-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    gsap.to(window, {
+      duration: 0.8,
+      ease: 'ease-out',
+      scrollTo: {
+        y: '#message',
+      }
+    });
+  });
+
+  //スクロールイベント時処理
   window.addEventListener('scroll', function () {
     drawSVG();
   });
@@ -168,13 +181,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const mm = gsap.matchMedia();
 
   mm.add("(max-width: 767px)", () => {
-    const scrollValue = scrollOuter.clientWidth;
+    const scrollValue = scrollOuter.clientWidth * 2.4;
     setScrollSetting(scrollValue);
     setScrollNavLink(scrollValue);
   });
 
   mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
-    const scrollValue = scrollOuter.clientWidth;
+    const scrollValue = scrollOuter.clientWidth * 1.4;
     setScrollSetting(scrollValue);
     setScrollNavLink(scrollValue);
   });

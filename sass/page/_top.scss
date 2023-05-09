@@ -171,13 +171,17 @@
       right: 20px;
       width: 145px;
       height: 145px;
+      display: block;
       border-radius: 50%;
-      border: 1px solid $gray;
+      border: 1px solid $paleGray;
+      text-decoration: none;
+      pointer-events: none;
       opacity: 0;
       transition: 0.6s 0.8s;
 
       &.active {
         opacity: 1;
+        pointer-events: all;
       }
 
       @media screen and (min-width: 768px) {
@@ -198,6 +202,7 @@
       top: 50%;
       left: 60%;
       transform: translate(-50%, -50%);
+      display: block;
       color: $white;
       font-family: $oswald;
       font-size: 11px;
@@ -236,10 +241,8 @@
     }
 
     &__txt-wrap {
-      @media screen and (min-width: 1024px) {
-        width: fit-content;
-        margin: 0 auto;
-      }
+      width: fit-content;
+      margin: 0 auto;
     }
 
     &__txt {
@@ -319,10 +322,7 @@
 
     &__info {
       width: 100%;
-
-      @media screen and (min-width: 768px) {
-        width: 560px;
-      }
+      max-width: 560px;
     }
 
     &__name-wrap {
@@ -676,36 +676,20 @@
     }
 
     &__more-link {
+      @include link-circle-btn(90px, 15px);
       position: absolute;
       top: 50%;
       right: 0;
       transform: translateY(-50%);
-      width: 90px;
-      height: 90px;
-      border: 1px solid $paleGray;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      color: $white;
-      font-family: $oswald;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
       z-index: 1;
 
       @media screen and (min-width: 768px) {
-        width: 130px;
-        height: 130px;
+        @include link-circle-btn(130px, 18px);
         transform: translate(50%, -50%);
-        font-size: 18px;
       }
 
       @media screen and (min-width: 1400px) {
-        width: 223px;
-        height: 223px;
-        font-size: 24px;
+        @include link-circle-btn(223px, 24px);
       }
     }
 
@@ -766,24 +750,10 @@
     }
 
     &__all-btn {
-      width: 80px;
-      height: 80px;
-      border: 1px solid $paleGray;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $white;
-      font-family: $oswald;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      text-decoration: none;
+      @include link-circle-btn(80px, 13px);
 
       @media screen and (min-width: 1024px) {
-        width: 100px;
-        height: 100px;
-        font-size: 15px;
+        @include link-circle-btn(100px, 15px);
       }
     }
   }
@@ -825,22 +795,9 @@
     }
 
     &__link-btn {
-      width: 98px;
-      height: 98px;
+      @include link-circle-btn(98px, 12px);
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      border: 1px solid $paleGray;
-      color: $white;
-      font-family: $oswald;
-      font-size: 12px;
-      font-weight: 700;
       line-height: 1.6;
-      letter-spacing: 0.05em;
-      text-decoration: none;
-      text-align: center;
     }
   }
 }

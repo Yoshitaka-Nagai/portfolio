@@ -49,10 +49,12 @@
     &__filter-wrap {
       display: flex;
       justify-content: space-between;
+      max-width: 380px;
 
       @media screen and (min-width: 768px) {
         justify-content: flex-start;
         gap: 30px;
+        max-width: none;
       }
 
       @media screen and (min-width: 1280px) {
@@ -65,9 +67,14 @@
       display: block;
       padding: 10px 0;
       color: $gray;
+      font-family: $oswald;
       font-size: 13px;
       transition: 0.4s;
       position: relative;
+
+      &.ja {
+        font-family: $noto-sans;
+      }
 
       &::before {
         content: "";
