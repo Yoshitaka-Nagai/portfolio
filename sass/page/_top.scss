@@ -551,9 +551,11 @@
 
     &__ttl {
       @include section-title;
-      padding-top: 30px;
+      margin-bottom: 20px;
+      padding-top: 20px;
 
       @media screen and (min-width: 768px) {
+        margin-bottom: 40px;
         padding-top: 40px;
       }
 

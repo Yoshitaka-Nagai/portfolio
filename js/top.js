@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   //mvのスクロールボタンのスムーススクロール
-  document.getElementById('mv__scroll-btn').addEventListener('click', function(e){
+  document.getElementById('mv__scroll-btn').addEventListener('click', function (e) {
     e.preventDefault();
     gsap.to(window, {
       duration: 0.8,
@@ -199,10 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   initSVG();
-
-
-
-
 
 
 
