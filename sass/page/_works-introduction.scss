@@ -25,34 +25,20 @@
     }
 
     &__link-btn {
-      width: 80px;
-      height: 80px;
+      @include link-circle-btn(80px, 13px);
       position: absolute;
       bottom: 0;
       right: 0;
       transform: translateY(50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid $paleGray;
-      border-radius: 50%;
-      color: $white;
-      font-family: $oswald;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      text-decoration: none;
 
       @media screen and (min-width: 768px) {
-        width: 130px;
-        height: 130px;
-        font-size: 18px;
+        @include link-circle-btn(130px, 18px);
+        right: calc(80 / 768 * 100%);
       }
 
       @media screen and (min-width: 1024px) {
-        width: 223px;
-        height: 223px;
-        font-size: 24px;
+        @include link-circle-btn(223px, 24px);
+        right: 0;
       }
     }
   }
@@ -187,28 +173,44 @@
 
     &__link-prev,
     &__link-next {
-      width: 42%;
+      width: 45%;
       display: flex;
       flex-direction: column;
       gap: 10px;
       text-decoration: none;
+
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
 
       @media screen and (min-width: 768px) {
         width: 30%;
       }
     }
 
+    &__link-img-wrap {
+      width: 100%;
+      overflow: hidden;
+    }
+
     &__link-img {
       width: 100%;
       display: block;
       object-fit: cover;
+      transition: 0.4s;
     }
 
     &__link-txt {
       color: $white;
-      font-size: 14px;
+      font-size: 12px;
 
       @media screen and (min-width: 768px) {
+        font-size: 14px;
+      }
+
+      @media screen and (min-width: 1024px) {
         font-size: 16px;
       }
     }
