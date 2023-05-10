@@ -26,6 +26,7 @@
   }
 }
 
+//mvのスクロールボタンの矢印アニメーション：移動量
 @keyframes arrowMove {
   0% {
     top: 10px;
@@ -36,6 +37,7 @@
   }
 }
 
+//mvのスクロールボタンの矢印アニメーション：途中で隠す
 @keyframes arrowHide {
   0% {
     opacity: 0;
@@ -51,5 +53,26 @@
 
   100% {
     opacity: 0;
+  }
+}
+
+//
+@keyframes showScrollBtn {
+  100% {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+//
+@keyframes showCatchcopyEnImgSp {
+  100%{
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes showCatchcopyEnImgPC {
+  100%{
+    transform: translate(-50%, 0);
   }
 }

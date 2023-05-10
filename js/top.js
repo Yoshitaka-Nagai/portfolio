@@ -59,6 +59,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const svgList = document.querySelectorAll('.skill__icon-svg');
 
   //
+  const scrollBtn = document.getElementById('mv__scroll-btn');
+
+  //
+  const catchcopyEnImg = document.getElementById('mv__catchcopy-en-img');
+
+  //
   let currentIndex = -1;
 
   //
@@ -161,6 +167,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  //mvのアニメーション開始処理
+  function startMvAnimation() {
+    //ページ最上部にいるときのみアニメーション開始
+    if (window.scrollY === 0) {
+      scrollBtn.classList.add('active');
+      catchcopyEnImg.classList.add('active');
+    } else {
+      scrollBtn.classList.add('completed');
+      catchcopyEnImg.classList.add('completed');
+    }
+  }
+
   //mvのスクロールボタンのスムーススクロール
   document.getElementById('mv__scroll-btn').addEventListener('click', function (e) {
     e.preventDefault();
@@ -181,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const mm = gsap.matchMedia();
 
   mm.add("(max-width: 767px)", () => {
-    const scrollValue = scrollOuter.clientWidth * 2.4;
+    const scrollValue = scrollOuter.clientWidth * 2.1;
     setScrollSetting(scrollValue);
     setScrollNavLink(scrollValue);
   });
@@ -193,11 +211,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   mm.add("(min-width: 1024px)", () => {
-    const scrollValue = scrollOuter.clientWidth * 0.8;
+    const scrollValue = scrollOuter.clientWidth * 0.7;
     setScrollSetting(scrollValue);
     setScrollNavLink(scrollValue);
   });
 
+  startMvAnimation();
   initSVG();
 
 
@@ -222,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
   setTimeout(() => {
     document.getElementById('mv__catchcopy-ja').classList.add('active');
     document.getElementById('mv__catchcopy-en-img').classList.add('active');
-    document.getElementById('mv__scroll-btn').classList.add('active');
+    //document.getElementById('mv__scroll-btn').classList.add('active');
   }, 1000);
 
 
