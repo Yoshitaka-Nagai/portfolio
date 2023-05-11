@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (st > targetPos - windowHeight * 0.5) {
         svgList[i].querySelectorAll('path').forEach((path) => {
           path.style.transitionProperty = 'stroke-dashoffset';
-          path.style.transitionDuration = '2.5s';
+          path.style.transitionDuration = '2.8s';
           path.style.transitionTimingFunction = 'ease-in-out';
           path.style.strokeDashoffset = 0;
         });

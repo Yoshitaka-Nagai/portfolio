@@ -11,25 +11,29 @@ document.addEventListener('DOMContentLoaded', function () {
   //ヘッダーロゴ
   const headerLogo = document.getElementById('header__logo-link');
 
-  //
+  //グローバルナビゲーション
   const gnav = document.getElementById('gnav');
 
-  //メニューボタン
+  //メニュー開閉ボタン
   const menuBtn = document.getElementById('menu-btn');
 
-  //
+  //js-クラス付与対象リスト
+  const jsTargetList = document.querySelectorAll('.js-fadeIn, .js-fadeUp, .js-fadeUpLarge, .js-fadeRight');
+
+  //現在のスクロール量
   let currentScrollPosition = 0;
 
-  //
+  //スクロールイベント時処理
   window.addEventListener('scroll', function () {
-    const scrollPosition = document.documentElement.scrollTop;
+    const scrollPosition = window.scrollY;
     if (currentScrollPosition > scrollPosition) {
       showHeader();
     } else {
       hideHeader();
     }
-
     currentScrollPosition = scrollPosition;
+
+    setJsTargetActive();
   });
 
   //ウィンドウリサイズ時処理
@@ -55,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  //ヘッダー処理化
   function headerInit() {
     menuBtn.classList.remove('js-opened');
     gnav.classList.remove('js-opened');
@@ -65,19 +70,34 @@ document.addEventListener('DOMContentLoaded', function () {
     document.removeEventListener('wheel', noScroll);
   }
 
+  //イベント処理禁止用
   function noScroll(e) {
     e.preventDefault();
   }
 
-  function showHeader(){
+  //ヘッダー表示
+  function showHeader() {
     header.classList.add('js-show');
   }
 
-  function hideHeader(){
+  //ヘッダー非表示
+  function hideHeader() {
     header.classList.remove('js-show');
   }
 
-  function init(){
+  //対象にクラス付与
+  function setJsTargetActive() {
+    const st = window.scrollY;
+    jsTargetList.forEach((e) => {
+      const position = e.getBoundingClientRect().top + st;
+      if (st > position - windowHeight * 0.5) {
+        e.classList.add('js-active');
+      }
+    });
+  }
+
+  //初期実行処理
+  function init() {
     showHeader();
   }
 
