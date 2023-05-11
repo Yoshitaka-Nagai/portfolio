@@ -1,8 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
   class WorksItem {
+    duration = 0.8;
+    xMove = "-40px";
+
     constructor(e) {
       this.txt = e.querySelector('.works__txt-wrap');
       this.img = e.querySelector('.works__img-wrap');
+      gsap.set(this.txt, {
+        autoAlpha: 0,
+        x: this.xMove,
+      });
+      gsap.set(this.img, {
+        autoAlpha: 0
+      });
     }
     show() {
       this.showImage();
@@ -14,11 +24,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     showImage() {
       gsap.to(this.img, {
+        duration: this.duration,
         autoAlpha: 1
       });
     }
     hideImage() {
       gsap.to(this.img, {
+        duration: this.duration,
         autoAlpha: 0
       });
     }
@@ -26,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
       let e;
       (e = this.currentAnimation) == null || e.kill();
       this.currentAnimation = gsap.to(this.txt, {
+        duration: this.duration,
         autoAlpha: 1,
         x: 0,
       });
@@ -34,8 +47,9 @@ document.addEventListener('DOMContentLoaded', function () {
       let e;
       (e = this.currentAnimation) == null || e.kill();
       this.currentAnimation = gsap.to(this.txt, {
+        duration: 0,
         autoAlpha: 0,
-        x: "-50px",
+        x: this.xMove,
       });
     }
   }
@@ -53,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const scrollOuter = document.getElementById('works__scroll-outer');
 
   //
-  const navLinks = document.querySelectorAll('.works__nav-link');
+  const worksNavBtns = document.querySelectorAll('.works__nav-btn');
 
   //
   const svgList = document.querySelectorAll('.skill__icon-svg');
@@ -75,6 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //
   const mm = gsap.matchMedia();
+
+  //
+  const worksNavWrap = document.getElementById('works__nav-wrap');
 
   //
   let currentIndex = -1;
@@ -100,10 +117,15 @@ document.addEventListener('DOMContentLoaded', function () {
       currentIndex = index;
       activeNavLink(currentIndex);
     }
+
+    //ナビゲーションボタン表示
+    if (!worksNavWrap.classList.contains('js-active')) {
+      worksNavWrap.classList.add('js-active');
+    }
   }
 
   function activeNavLink(activeIndex) {
-    navLinks.forEach((e, index) => {
+    worksNavBtns.forEach((e, index) => {
       if (index === activeIndex) {
         e.classList.add('js-active');
       } else {
@@ -146,8 +168,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     };
 
-    gsap.utils.toArray('.works__nav-link').forEach((link, index) => {
-      link.onclick = scrollToFunction.bind(null, index);
+    worksNavBtns.forEach((btn, index) => {
+      btn.onclick = scrollToFunction.bind(null, index);
     });
   }
 

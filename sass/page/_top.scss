@@ -731,6 +731,14 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
+      transition: 0.4s;
+      opacity: 0;
+      pointer-events: none;
+
+      &.js-active {
+        opacity: 1;
+        pointer-events: all;
+      }
 
       @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -752,12 +760,12 @@
       border-radius: 9999px;
     }
 
-    &__nav-link {
+    &__nav-btn {
+      width: 40px;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 40px;
-      height: 40px;
       border-radius: 50%;
       text-decoration: none;
       color: $white;
@@ -765,7 +773,12 @@
       font-size: 12px;
       font-weight: 700;
       letter-spacing: -0.03em;
+      cursor: pointer;
       transition: background .4s ease-out;
+
+      &:hover {
+        background: $paleGray;
+      }
 
       &.js-active {
         background: $black;
