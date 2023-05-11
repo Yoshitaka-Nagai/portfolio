@@ -140,7 +140,7 @@
         width: calc(100% - 20px);
         height: 1px;
         background: $white;
-        transition: transform .3s;
+        transition: transform .4s ease-out;
         transform-origin: right;
         transform: scaleX(0);
       }
