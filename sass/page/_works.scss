@@ -92,7 +92,7 @@
         color: $white;
       }
 
-      &.is-active {
+      &.js-active {
         color: $white;
 
         &::before {
@@ -133,7 +133,7 @@
       gap: 20px;
       list-style-type: none;
 
-      &.hidden {
+      &.js-hidden {
         display: none;
       }
 

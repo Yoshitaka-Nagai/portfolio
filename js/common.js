@@ -42,12 +42,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //メニューボタンクリック時処理
   menuBtn.addEventListener('click', function () {
-    if (this.classList.contains('opened')) {
+    if (this.classList.contains('js-opened')) {
       headerInit();
     } else {
-      this.classList.add('opened');
-      gnav.classList.add('opened');
-      headerLogo.classList.add('black');
+      this.classList.add('js-opened');
+      gnav.classList.add('js-opened');
+      headerLogo.classList.add('js-black');
 
       //メニューが開かれているときはスクロール禁止
       document.addEventListener('touchmove', noScroll, { passive: false });
@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function headerInit() {
-    menuBtn.classList.remove('opened');
-    gnav.classList.remove('opened');
-    headerLogo.classList.remove('black');
+    menuBtn.classList.remove('js-opened');
+    gnav.classList.remove('js-opened');
+    headerLogo.classList.remove('js-black');
 
     //スクロール禁止を解除
     document.removeEventListener('touchmove', noScroll);
@@ -70,11 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showHeader(){
-    header.classList.add('show');
+    header.classList.add('js-show');
   }
 
   function hideHeader(){
-    header.classList.remove('show');
+    header.classList.remove('js-show');
   }
 
   function init(){

@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', function () {
-      filterBtns.forEach(e => e.classList.remove('is-active'));
-      btn.classList.add('is-active');
+      filterBtns.forEach(e => e.classList.remove('js-active'));
+      btn.classList.add('js-active');
       filter(btn.dataset.filter);
     });
   });
@@ -22,16 +22,16 @@ document.addEventListener('DOMContentLoaded', function () {
     worksList.forEach(item => {
       const tags = [...item.querySelectorAll('.works-view__tag')].map(e => e.dataset.tag);
       if (tags.includes(filterName)) {
-        item.classList.remove('hidden');
+        item.classList.remove('js-hidden');
       } else {
-        item.classList.add('hidden');
+        item.classList.add('js-hidden');
       }
     });
   }
 
   function clearFilter() {
     worksList.forEach(item => {
-      item.classList.remove('hidden');
+      item.classList.remove('js-hidden');
     });
   }
 

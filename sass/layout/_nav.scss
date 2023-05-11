@@ -22,7 +22,7 @@
     letter-spacing: 0.05em;
   }
 
-  &.opened::before {
+  &.js-opened::before {
     content: '・CLOSE';
     color: $black;
   }
@@ -49,7 +49,7 @@
     z-index: 1;
   }
 
-  &.opened {
+  &.js-opened {
     opacity: 1;
     pointer-events: all;
 

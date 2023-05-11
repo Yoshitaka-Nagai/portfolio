@@ -12,7 +12,7 @@
   transform: translateY(-100%);
   z-index: 10;
 
-  &.show {
+  &.js-show {
     opacity: 1;
     transform: translateY(0);
   }
@@ -48,7 +48,7 @@
     font-size: 36px;
     font-weight: 700;
 
-    &.black {
+    &.js-black {
       color: $black;
     }
   }

@@ -24,11 +24,11 @@
         opacity: 1;
       }
 
-      &.completed::before {
+      &.js-completed::before {
         transition: none;
       }
 
-      &.active::before {
+      &.js-active::before {
         opacity: 0.9;
       }
     }
@@ -81,11 +81,11 @@
         font-size: 22px;
       }
 
-      &.completed {
+      &.js-completed {
         transition: none;
       }
 
-      &.active {
+      &.js-active {
         opacity: 1;
         transform: rotate(-5deg) translateX(0);
 
@@ -138,11 +138,11 @@
       mix-blend-mode: overlay;
       z-index: 2;
 
-      &.completed {
+      &.js-completed {
         transition: none;
       }
 
-      &.active {
+      &.js-active {
         opacity: 1;
         transform: translate(0, 0);
       }
@@ -163,7 +163,7 @@
         left: 50%;
         transform: translate(calc(-50% - 100vw), 0);
 
-        &.active {
+        &.js-active {
           transform: translate(-50%, 0);
         }
       }
@@ -196,11 +196,11 @@
       opacity: 0;
       pointer-events: none;
 
-      &.completed {
+      &.js-completed {
         transition: none;
       }
 
-      &.active {
+      &.js-active {
         opacity: 1;
         pointer-events: all;
       }
@@ -767,7 +767,7 @@
       letter-spacing: -0.03em;
       transition: background .4s ease-out;
 
-      &.is-active {
+      &.js-active {
         background: $black;
       }
 

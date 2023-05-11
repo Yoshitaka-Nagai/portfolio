@@ -105,9 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
   function activeNavLink(activeIndex) {
     navLinks.forEach((e, index) => {
       if (index === activeIndex) {
-        e.classList.add('is-active');
+        e.classList.add('js-active');
       } else {
-        e.classList.remove('is-active');
+        e.classList.remove('js-active');
       }
     });
   }
@@ -182,29 +182,29 @@ document.addEventListener('DOMContentLoaded', function () {
   //mvのアニメーション開始処理
   function startMvAnimation() {
     //ヘッダー表示処理を止める
-    header.classList.remove('show');
+    header.classList.remove('js-show');
 
     //ページ最上部にいるときのみ開始を少し遅らせる
     if (window.scrollY === 0) {
       setTimeout(() => {
-        videoWrap.classList.add('active');
-        catchcopyJa.classList.add('active');
-        catchcopyEnImg.classList.add('active');
-        scrollBtn.classList.add('active');
+        videoWrap.classList.add('js-active');
+        catchcopyJa.classList.add('js-active');
+        catchcopyEnImg.classList.add('js-active');
+        scrollBtn.classList.add('js-active');
       }, 800);
       setTimeout(() => {
-        header.classList.add('show');
+        header.classList.add('js-show');
       }, 2000);
     } else {
-      videoWrap.classList.add('completed');
-      videoWrap.classList.add('active');
-      catchcopyJa.classList.add('completed');
-      catchcopyJa.classList.add('active');
-      catchcopyEnImg.classList.add('completed');
-      catchcopyEnImg.classList.add('active');
-      scrollBtn.classList.add('completed');
-      scrollBtn.classList.add('active');
-      header.classList.add('show');
+      videoWrap.classList.add('js-completed');
+      videoWrap.classList.add('js-active');
+      catchcopyJa.classList.add('js-completed');
+      catchcopyJa.classList.add('js-active');
+      catchcopyEnImg.classList.add('js-completed');
+      catchcopyEnImg.classList.add('js-active');
+      scrollBtn.classList.add('js-completed');
+      scrollBtn.classList.add('js-active');
+      header.classList.add('js-show');
     }
   }
 
