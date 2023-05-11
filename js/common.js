@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
   //
   window.addEventListener('scroll', function () {
     const scrollPosition = document.documentElement.scrollTop;
-    if (currentScrollPosition < scrollPosition) {
-      header.classList.add('hidden');
+    if (currentScrollPosition > scrollPosition) {
+      showHeader();
     } else {
-      header.classList.remove('hidden');
+      hideHeader();
     }
 
     currentScrollPosition = scrollPosition;
@@ -68,5 +68,19 @@ document.addEventListener('DOMContentLoaded', function () {
   function noScroll(e) {
     e.preventDefault();
   }
+
+  function showHeader(){
+    header.classList.add('show');
+  }
+
+  function hideHeader(){
+    header.classList.remove('show');
+  }
+
+  function init(){
+    showHeader();
+  }
+
+  init();
 
 }, false);

@@ -58,11 +58,23 @@ document.addEventListener('DOMContentLoaded', function () {
   //
   const svgList = document.querySelectorAll('.skill__icon-svg');
 
+  //ヘッダー
+  const header = document.getElementById('header');
+
+  //
+  const videoWrap = document.getElementById('mv__video-wrap');
+
+  //
+  const catchcopyJa = document.getElementById('mv__catchcopy-ja');
+
+  //
+  const catchcopyEnImg = document.getElementById('mv__catchcopy-en-img');
+
   //
   const scrollBtn = document.getElementById('mv__scroll-btn');
 
   //
-  const catchcopyEnImg = document.getElementById('mv__catchcopy-en-img');
+  const mm = gsap.matchMedia();
 
   //
   let currentIndex = -1;
@@ -169,14 +181,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //mvのアニメーション開始処理
   function startMvAnimation() {
-    //ページ最上部にいるときのみアニメーション開始
+    //ヘッダー表示処理を止める
+    header.classList.remove('show');
+
+    //ページ最上部にいるときのみ開始を少し遅らせる
     if (window.scrollY === 0) {
-      scrollBtn.classList.add('active');
-      catchcopyEnImg.classList.add('active');
+      setTimeout(() => {
+        videoWrap.classList.add('active');
+        catchcopyJa.classList.add('active');
+        catchcopyEnImg.classList.add('active');
+        scrollBtn.classList.add('active');
+      }, 800);
+      setTimeout(() => {
+        header.classList.add('show');
+      }, 2000);
     } else {
-      scrollBtn.classList.add('completed');
+      videoWrap.classList.add('completed');
+      videoWrap.classList.add('active');
+      catchcopyJa.classList.add('completed');
+      catchcopyJa.classList.add('active');
       catchcopyEnImg.classList.add('completed');
+      catchcopyEnImg.classList.add('active');
+      scrollBtn.classList.add('completed');
+      scrollBtn.classList.add('active');
+      header.classList.add('show');
     }
+  }
+
+  //
+  function setGsapMatchMedia() {
+    mm.add("(max-width: 767px)", () => {
+      const scrollValue = scrollOuter.clientWidth * 2.1;
+      setScrollSetting(scrollValue);
+      setScrollNavLink(scrollValue);
+    });
+
+    mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
+      const scrollValue = scrollOuter.clientWidth * 1.4;
+      setScrollSetting(scrollValue);
+      setScrollNavLink(scrollValue);
+    });
+
+    mm.add("(min-width: 1024px)", () => {
+      const scrollValue = scrollOuter.clientWidth * 0.7;
+      setScrollSetting(scrollValue);
+      setScrollNavLink(scrollValue);
+    });
   }
 
   //mvのスクロールボタンのスムーススクロール
@@ -196,55 +246,13 @@ document.addEventListener('DOMContentLoaded', function () {
     drawSVG();
   });
 
-  const mm = gsap.matchMedia();
+  //初期実行処理
+  function topInit() {
+    setGsapMatchMedia();
+    startMvAnimation();
+    initSVG();
+  }
 
-  mm.add("(max-width: 767px)", () => {
-    const scrollValue = scrollOuter.clientWidth * 2.1;
-    setScrollSetting(scrollValue);
-    setScrollNavLink(scrollValue);
-  });
-
-  mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
-    const scrollValue = scrollOuter.clientWidth * 1.4;
-    setScrollSetting(scrollValue);
-    setScrollNavLink(scrollValue);
-  });
-
-  mm.add("(min-width: 1024px)", () => {
-    const scrollValue = scrollOuter.clientWidth * 0.7;
-    setScrollSetting(scrollValue);
-    setScrollNavLink(scrollValue);
-  });
-
-  startMvAnimation();
-  initSVG();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  setTimeout(() => {
-    document.getElementById('mv__catchcopy-ja').classList.add('active');
-    document.getElementById('mv__catchcopy-en-img').classList.add('active');
-    //document.getElementById('mv__scroll-btn').classList.add('active');
-  }, 1000);
-
-
-
+  topInit();
 
 }, false);

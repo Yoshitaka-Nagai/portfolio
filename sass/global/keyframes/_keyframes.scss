@@ -55,24 +55,3 @@
     opacity: 0;
   }
 }
-
-//
-@keyframes showScrollBtn {
-  100% {
-    opacity: 1;
-    pointer-events: all;
-  }
-}
-
-//
-@keyframes showCatchcopyEnImgSp {
-  100%{
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes showCatchcopyEnImgPC {
-  100%{
-    transform: translate(-50%, 0);
-  }
-}
