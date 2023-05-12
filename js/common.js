@@ -26,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //メニュー開閉ボタン
   const menuBtn = document.getElementById('menu-btn');
 
+  //トップへ戻るボタン
+  const backBtn = document.getElementById('footer__back-btn');
+
   //js-クラス付与対象リスト
   const jsTargetList = document.querySelectorAll('.js-fadeIn, .js-fadeUp, .js-fadeUpLarge, .js-fadeRight');
 
@@ -71,6 +74,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  //トップへ戻るボタンクリック時処理
+  backBtn.addEventListener('click', function () {
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
   //ヘッダー初期化
   function headerInit() {
     menuBtn.classList.remove('js-opened');
@@ -111,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  function startPageAnimation(){
+  function startPageAnimation() {
     wrapper.classList.add('js-active');
   }
 

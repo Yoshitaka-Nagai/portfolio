@@ -2,6 +2,7 @@
 
 .footer {
   padding: 46px 0;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     padding: 36px 0;
@@ -40,5 +41,53 @@
     font-family: $oswald;
     font-size: 11px;
     letter-spacing: 0.05em;
+  }
+
+  &__back-btn {
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $paleGray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.4s ease-out;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 54%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      width: 8px;
+      height: 8px;
+      border-top: 1px solid $paleGray;
+      border-right: 1px solid $paleGray;
+      transition: 0.4s ease-out;
+    }
+
+    @media screen and (min-width: 768px) {
+      bottom: 50%;
+      transform: translateY(50%);
+    }
+
+    @media screen and (min-width: 1024px) {
+      right: 40px;
+
+      &:hover {
+        background: $white;
+      }
+
+      &:hover::before {
+        border-top: 1px solid $black;
+        border-right: 1px solid $black;
+      }
+    }
   }
 }
