@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //グローバルナビゲーション
   const gnav = document.getElementById('gnav');
 
+  //グローバルナビゲーションリスト
+  const gnavList = document.querySelectorAll('.gnav__list');
+
   //メニュー開閉ボタン
   const menuBtn = document.getElementById('menu-btn');
 
@@ -55,6 +58,9 @@ document.addEventListener('DOMContentLoaded', function () {
       this.classList.add('js-opened');
       gnav.classList.add('js-opened');
       headerLogo.classList.add('js-black');
+      gnavList.forEach(li => {
+        li.classList.add('js-active');
+      });
 
       //メニューが開かれているときはスクロール禁止
       document.addEventListener('touchmove', noScroll, { passive: false });
@@ -62,11 +68,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  //ヘッダー処理化
+  //ヘッダー初期化
   function headerInit() {
     menuBtn.classList.remove('js-opened');
     gnav.classList.remove('js-opened');
     headerLogo.classList.remove('js-black');
+    gnavList.forEach(li => {
+      li.classList.remove('js-active');
+    });
 
     //スクロール禁止を解除
     document.removeEventListener('touchmove', noScroll);
