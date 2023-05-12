@@ -7,6 +7,7 @@
     position: relative;
     opacity: 0;
     animation: fadeUp 1s 0.5s forwards;
+    z-index: 1;
 
     @media screen and (min-width: 768px) {
       margin-top: 176px;
