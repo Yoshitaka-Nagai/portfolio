@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //ブレイクポイント：PC
   const breakPointPc = 1024;
 
+  //wrapper
+  const wrapper = document.getElementById('wrapper');
+
   //ヘッダー
   const header = document.getElementById('header');
 
@@ -96,8 +99,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function startPageAnimation(){
+    wrapper.classList.add('js-active');
+  }
+
   //初期実行処理
   function init() {
+    startPageAnimation();
     showHeader();
   }
 

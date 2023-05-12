@@ -36,6 +36,8 @@
       font-family: $oswald;
       font-size: 66px;
       font-weight: 700;
+      opacity: 0;
+      animation: fadeRight 1s 0.5s forwards;
 
       @media screen and (min-width: 768px) {
         font-size: 91px;
@@ -50,6 +52,8 @@
       display: flex;
       justify-content: space-between;
       max-width: 380px;
+      opacity: 0;
+      animation: fadeIn 1.5s 0.5s forwards;
 
       @media screen and (min-width: 768px) {
         justify-content: flex-start;
@@ -112,6 +116,8 @@
       display: flex;
       flex-direction: column;
       row-gap: 48px;
+      opacity: 0;
+      animation: fadeUp 1s 0.5s forwards;
 
       @media screen and (min-width: 768px) {
         margin-bottom: 100px;
