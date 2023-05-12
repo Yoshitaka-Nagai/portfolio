@@ -58,6 +58,16 @@
   }
 }
 
+//messageの背景アニメーション
+@keyframes bgMove {
+  0%{
+    bottom: -100%;
+  }
+  100%{
+    bottom: 100%;
+  }
+}
+
 //fadeRight
 @keyframes fadeRight {
   0%{
