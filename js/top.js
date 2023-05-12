@@ -57,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //ビューポートの高さ
   const windowHeight = window.innerHeight;
 
+  //SVG描画スクロール位置調整用
+  const drawAdjustmentNumber = 0.65;
+
   //
   const items = [...document.querySelectorAll('.works__item')].map(e => new WorksItem(e));
 
@@ -190,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const st = window.scrollY;
     for (let i = 0; i < svgList.length; i++) {
       const targetPos = svgList[i].getBoundingClientRect().top + st;
-      if (st > targetPos - windowHeight * 0.5) {
+      if (st > targetPos - windowHeight * drawAdjustmentNumber) {
         svgList[i].querySelectorAll('path').forEach((path) => {
           path.style.transitionProperty = 'stroke-dashoffset';
           path.style.transitionDuration = '2.8s';

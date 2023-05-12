@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   //ビューポートの高さ
   const windowHeight = window.innerHeight;
 
+  //クラス付与のスクロール位置調整用
+  const adjustmentNumber = 0.65;
+
   //ブレイクポイント：PC
   const breakPointPc = 1024;
 
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const st = window.scrollY;
     jsTargetList.forEach((e) => {
       const position = e.getBoundingClientRect().top + st;
-      if (st > position - windowHeight * 0.5) {
+      if (st > position - windowHeight * adjustmentNumber) {
         e.classList.add('js-active');
       }
     });

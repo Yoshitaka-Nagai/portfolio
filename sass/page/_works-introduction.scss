@@ -5,6 +5,8 @@
     margin-top: 80px;
     margin-bottom: 60px;
     position: relative;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
 
     @media screen and (min-width: 768px) {
       margin-top: 176px;
@@ -45,6 +47,8 @@
 
   .introduction {
     @include contents-width(1160px);
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
 
     &__ttl {
       margin-bottom: 20px;
