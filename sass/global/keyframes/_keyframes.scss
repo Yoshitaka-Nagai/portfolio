@@ -29,13 +29,24 @@
 }
 
 //mvのスクロールボタンの矢印アニメーション：移動量
-@keyframes arrowMove {
+@keyframes mvArrowMove {
   0% {
     top: 10px;
   }
 
   100% {
     top: 40px;
+  }
+}
+
+//mvのスクロールボタンの矢印アニメーション：移動量
+@keyframes worksArrowMove {
+  0% {
+    transform: translate(-50%, calc(-50% - 8px));
+  }
+
+  100% {
+    transform: translate(-50%, calc(-50% + 15px));
   }
 }
 
@@ -67,6 +78,17 @@
     bottom: 100%;
   }
 }
+
+//worksのSCROLL DOWN文字アニメーション
+@keyframes circleRotate {
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
 
 //fadeRight
 @keyframes fadeRight {

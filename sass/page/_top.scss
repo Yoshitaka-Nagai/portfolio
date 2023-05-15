@@ -249,7 +249,7 @@
         background-size: contain;
         width: 18px;
         height: 25px;
-        animation: arrowMove 1.6s ease-in-out infinite, arrowHide 1.6s ease-out infinite;
+        animation: mvArrowMove 1.6s ease-in-out infinite, arrowHide 1.6s ease-out infinite;
       }
     }
   }
@@ -625,8 +625,10 @@
       height: 100vh;
     }
 
-    &__ttl {
-      @include section-title;
+    &__ttl-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 20px;
       padding-top: 20px;
 
@@ -637,6 +639,56 @@
 
       @media screen and (min-width: 1024px) {
         padding-top: 60px;
+      }
+    }
+
+    &__ttl {
+      @include section-title;
+      margin-bottom: 0;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__scroll-icon-wrap {
+      width: 80px;
+      height: 80px;
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: url(../images/top/arrow_down.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 14px;
+        height: 18px;
+        animation: worksArrowMove 1.6s ease-in-out infinite, arrowHide 1.6s ease-out infinite;
+      }
+
+      @media screen and (min-width: 768px) {
+        width: 130px;
+        height: 130px;
+
+        &::before {
+          width: 18px;
+          height: 24px;
+        }
+      }
+    }
+
+    &__scroll-icon {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+      animation: circleRotate 10s linear infinite;
+
+      path {
+        fill: $paleGray;
       }
     }
 
