@@ -46,6 +46,26 @@
     }
   }
 
+  .site-view {
+    @include contents-width(1160px);
+
+    &__scroll-area {
+      width: 100%;
+      height: 600px;
+      overflow: scroll;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar{
+        display: none;
+      }
+    }
+
+    &__img {
+      display: block;
+      width: 100%;
+    }
+  }
+
   .introduction {
     @include contents-width(1160px);
     opacity: 0;
