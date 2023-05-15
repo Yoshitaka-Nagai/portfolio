@@ -136,7 +136,7 @@
     &__list {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 18px;
       list-style-type: none;
 
       &.js-hidden {
@@ -170,6 +170,15 @@
       color: $white;
       font-size: 20px;
       font-weight: 400;
+
+      &.en {
+        font-family: $oswald;
+      }
+
+      &::before {
+        content: "Title : ";
+        font-family: $oswald;
+      }
     }
 
     &__tag-wrap {
@@ -180,7 +189,20 @@
     &__tag {
       color: $gray;
       font-family: $oswald;
-      font-size: 11px;
+      font-size: 12px;
+      position: relative;
+
+      &:first-of-type::before {
+        content: "Skill : ";
+      }
+
+      &:not(:last-of-type)::after{
+        content: "/";
+        position: absolute;
+        top: 50%;
+        right: -12px;
+        transform: translateY(-50%);
+      }
     }
   }
 }

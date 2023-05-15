@@ -2,7 +2,7 @@
 
 //コンテンツ幅
 @mixin contents-width($max-width: 1600px) {
-  padding: 0 calc(20 / 375 * 100%);
+  padding: 0 calc(30 / 375 * 100%);
 
   @media screen and (min-width: 768px) {
     padding: 0 calc(80 / 768 * 100%);
