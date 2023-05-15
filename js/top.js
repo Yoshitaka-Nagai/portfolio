@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const worksNavBtns = document.querySelectorAll('.works__nav-btn');
 
   //
+  const worksScrollIcon = document.getElementById('works__scroll-icon');
+
+  //
   const svgList = document.querySelectorAll('.skill__icon-svg');
 
   //ヘッダー
@@ -143,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
         trigger: scrollOuter,
         start: 'top top',
         end: `${total * scrollValue}`,
-        scrub: true,
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
@@ -152,6 +154,16 @@ document.addEventListener('DOMContentLoaded', function () {
           updateIndex(index);
           currentScroll = e.progress * total * scrollValue;
         },
+      }
+    });
+    gsap.to(worksScrollIcon, {
+      rotate: 1440,
+      ease: 'linear',
+      scrollTrigger: {
+        trigger: scrollOuter,
+        start: 'top top',
+        end: `${total * scrollValue}`,
+        scrub: true,
       }
     });
   }

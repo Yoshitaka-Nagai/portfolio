@@ -681,11 +681,14 @@
       }
     }
 
+    &__scroll-icon-box {
+      animation: circleRotate 16s linear infinite;
+    }
+
     &__scroll-icon {
       display: block;
       width: 100%;
       object-fit: cover;
-      animation: circleRotate 10s linear infinite;
 
       path {
         fill: $paleGray;
