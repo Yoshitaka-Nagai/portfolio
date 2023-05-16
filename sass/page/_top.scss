@@ -420,6 +420,25 @@
       font-size: 12px;
       letter-spacing: 0.03em;
       text-decoration: none;
+      position: relative;
+
+      &::before {
+        content: ""; 
+        position: absolute;
+        bottom: 0;
+        left: 4px;
+        width: calc(100% - 8px);
+        height: 1px;
+        background: $white;
+        transform-origin: right;
+        transform: scale(0);
+        transition: transform 0.4s ease-out;
+      }
+
+      &:hover::before {
+        transform-origin: left;
+        transform: scale(1);
+      }
 
       @media screen and (min-width: 768px) {
         gap: 16px;

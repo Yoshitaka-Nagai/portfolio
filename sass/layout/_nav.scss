@@ -134,10 +134,6 @@
       &:not(:last-of-type) {
         border-bottom: none;
       }
-
-      &:last-of-type a::before {
-        display: none;
-      }
     }
   }
 
