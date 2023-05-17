@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const header = document.getElementById('header');
 
   //
-  const videoWrap = document.getElementById('mv__video-wrap');
+  const videoWrap = document.getElementById('bg__video-wrap');
 
   //
   const catchcopyJa = document.getElementById('mv__catchcopy-ja');
@@ -276,6 +276,17 @@ document.addEventListener('DOMContentLoaded', function () {
         y: '#message',
       }
     });
+  });
+
+  //背景のビデオ表示を徐々に非表示
+  gsap.to(videoWrap, {
+    autoAlpha: 0,
+    scrollTrigger: {
+      trigger: '.message',
+      start: 'top top',
+      end: 'bottom center',
+      scrub: true,
+    }
   });
 
   //スクロールイベント時処理
