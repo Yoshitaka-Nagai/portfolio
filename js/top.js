@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
     scrollTrigger: {
       trigger: '.message',
       start: 'top top',
-      end: 'bottom center',
+      end: 'bottom center-=100px',
       scrub: true,
     }
   });
