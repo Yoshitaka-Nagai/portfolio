@@ -2262,48 +2262,40 @@ body {
   aspect-ratio: 1920/1080;
   padding-top: 1px;
   position: relative;
-  overflow: scroll;
+  overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 #works-introduction .site-view__scroll-area::-webkit-scrollbar {
   display: none;
 }
+#works-introduction .site-view .simplebar-scrollbar::before {
+  background: #868686;
+  border-radius: 9999px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#works-introduction .site-view .simplebar-scrollbar.simplebar-visible::before {
+  opacity: 1;
+}
+#works-introduction .site-view .simplebar-track {
+  background: #BABABA;
+  width: 10px;
+  border-radius: 9999px;
+  overflow: unset;
+}
+#works-introduction .site-view .simplebar-wrapper {
+  height: 100%;
+}
 #works-introduction .site-view__img {
   display: block;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-#works-introduction .site-view__scrollbar-area {
-  position: absolute;
-  top: 0;
-  right: 16px;
-  width: 4px;
-  height: 100%;
-  background: #fff;
-  border-radius: 9999px;
-}
-@media screen and (min-width: 768px) {
-  #works-introduction .site-view__scrollbar-area {
-    right: calc(10.4166666667% + 16px);
-  }
-}
-@media screen and (min-width: 1024px) {
-  #works-introduction .site-view__scrollbar-area {
-    right: -16px;
-  }
-}
-#works-introduction .site-view__scrollbar-thumb {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 16px;
-  border-radius: 9999px;
-  background: #BABABA;
-  transition: 0.1s linear;
 }
 #works-introduction .introduction {
   padding: 0 8%;
@@ -2329,6 +2321,9 @@ body {
   font-size: 28px;
   font-weight: 700;
   letter-spacing: 0.05em;
+}
+#works-introduction .introduction__ttl.en {
+  font-family: "Oswald", sans-serif;
 }
 #works-introduction .introduction__tag-wrap {
   margin-bottom: 30px;
