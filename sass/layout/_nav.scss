@@ -1,6 +1,7 @@
 @use "../global" as *;
 
 .menu-btn {
+  cursor: pointer;
   width: 44px;
   height: 44px;
   display: flex;
@@ -190,7 +191,7 @@
         transform: translate(calc(-50% + 48px), -50%);
         width: 24px;
         height: 24px;
-        background: url(../../images/common/icon_github_black.svg) center center / cover;
+        background: url(../images/common/icon_github_black.svg) center center / cover;
       }
     }
 

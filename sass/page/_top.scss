@@ -623,10 +623,8 @@
       height: 100vh;
     }
 
-    &__ttl-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    &__ttl {
+      @include section-title;
       margin-bottom: 20px;
       padding-top: 20px;
 
@@ -637,59 +635,6 @@
 
       @media screen and (min-width: 1024px) {
         padding-top: 60px;
-      }
-    }
-
-    &__ttl {
-      @include section-title;
-      margin-bottom: 0;
-
-      @media screen and (min-width: 768px) {
-        margin-bottom: 0;
-      }
-    }
-
-    &__scroll-icon-wrap {
-      width: 80px;
-      height: 80px;
-      position: relative;
-
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: url(../images/top/arrow_down.svg);
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 14px;
-        height: 18px;
-        animation: worksArrowMove 1.6s ease-in-out infinite, arrowHide 1.6s ease-out infinite;
-      }
-
-      @media screen and (min-width: 768px) {
-        width: 130px;
-        height: 130px;
-
-        &::before {
-          width: 18px;
-          height: 24px;
-        }
-      }
-    }
-
-    &__scroll-icon-box {
-      animation: circleRotate 16s linear infinite;
-    }
-
-    &__scroll-icon {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-
-      path {
-        fill: $white;
       }
     }
 
@@ -779,8 +724,6 @@
       }
     }
 
-    &__br {}
-
     &__img-wrap {
       position: relative;
       opacity: 0;
@@ -828,10 +771,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 14px;
       transition: 0.4s;
       opacity: 0;
       pointer-events: none;
+      position: relative;
 
       &.js-active {
         opacity: 1;
@@ -874,14 +818,6 @@
       cursor: pointer;
       transition: background .4s ease-out;
 
-      &:hover {
-        background: $paleGray;
-      }
-
-      &.js-active {
-        background: $black;
-      }
-
       @media screen and (min-width: 768px) {
         font-size: 13px;
       }
@@ -890,6 +826,14 @@
         width: 64px;
         height: 64px;
         font-size: 15px;
+
+        &:hover {
+          background: $paleGray;
+        }
+      }
+
+      &.js-active {
+        background: $black;
       }
     }
 
@@ -943,6 +887,58 @@
 
       @media screen and (min-width: 1400px) {
         font-size: 22px;
+      }
+    }
+
+    &__scroll-icon-wrap {
+      width: 72px;
+      height: 72px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, calc(100% + 10px));
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: url(../images/top/arrow_down.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 14px;
+        height: 18px;
+        animation: worksArrowMove 1.6s ease-in-out infinite, arrowHide 1.6s ease-out infinite;
+      }
+
+      @media screen and (min-width: 768px) {
+        width: 130px;
+        height: 130px;
+
+        &::before {
+          width: 18px;
+          height: 24px;
+        }
+      }
+
+      @media screen and (min-width: 1024px) {
+        left: 0;
+        transform: none;
+      }
+    }
+
+    &__scroll-icon-box {
+      animation: circleRotate 16s linear infinite;
+    }
+
+    &__scroll-icon {
+      display: block;
+      width: 100%;
+      object-fit: cover;
+
+      path {
+        fill: $white;
       }
     }
   }
