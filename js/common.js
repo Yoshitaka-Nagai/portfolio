@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', function () {
   //スクロールイベント時処理
   window.addEventListener('scroll', function () {
     const scrollPosition = window.scrollY;
+
+    if (scrollPosition === 0) {
+      headerLogo.classList.remove('js-hidden');
+    } else {
+      headerLogo.classList.add('js-hidden');
+    }
+
     if (currentScrollPosition > scrollPosition) {
       showHeader();
     } else {
@@ -45,15 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     currentScrollPosition = scrollPosition;
 
-    setJsTargetActive();
-  });
+    headerInit();
 
-  //ウィンドウリサイズ時処理
-  window.addEventListener('resize', function () {
-    const windowWidth = window.innerWidth;
-    if (windowWidth >= breakPointPc) {
-      headerInit();
-    }
+    setJsTargetActive();
   });
 
   //メニューボタンクリック時処理
