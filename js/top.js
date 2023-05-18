@@ -1,8 +1,15 @@
+//TOPページ用JS
 document.addEventListener('DOMContentLoaded', function () {
+  
+  //作品クラス
   class WorksItem {
+    //作品表示切替用：duration
     duration = 0.8;
+    
+    //テキスト表示切替用：x方向への移動量
     xMove = "-40px";
 
+    //コンストラクタ
     constructor(e) {
       this.txt = e.querySelector('.works__txt-wrap');
       this.img = e.querySelector('.works__img-wrap');
@@ -14,26 +21,36 @@ document.addEventListener('DOMContentLoaded', function () {
         autoAlpha: 0
       });
     }
+
+    //作品表示
     show() {
       this.showImage();
       this.showTexts();
     }
+
+    //作品非表示
     hide() {
       this.hideImage();
       this.hideTexts();
     }
+
+    //画像表示
     showImage() {
       gsap.to(this.img, {
         duration: this.duration,
         autoAlpha: 1
       });
     }
+
+    //画像非表示
     hideImage() {
       gsap.to(this.img, {
         duration: this.duration,
         autoAlpha: 0
       });
     }
+
+    //説明テキスト表示
     showTexts() {
       let e;
       (e = this.currentAnimation) == null || e.kill();
@@ -43,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
         x: 0,
       });
     }
+
+    //説明テキスト非表示
     hideTexts() {
       let e;
       (e = this.currentAnimation) == null || e.kill();
@@ -60,66 +79,70 @@ document.addEventListener('DOMContentLoaded', function () {
   //SVG描画スクロール位置調整用
   const drawAdjustmentNumber = 0.65;
 
-  //
-  const items = [...document.querySelectorAll('.works__item')].map(e => new WorksItem(e));
+  //作品リスト
+  const worksItemList = [...document.querySelectorAll('.works__item')].map(e => new WorksItem(e));
 
-  //
-  const total = items.length;
+  //作品数
+  const total = worksItemList.length;
 
-  //
+  //GSAPスクロール固定要素
   const scrollOuter = document.getElementById('works__scroll-outer');
 
-  //
+  //作品ナビゲーションボタン
   const worksNavBtns = document.querySelectorAll('.works__nav-btn');
 
-  //
+  //スクロールテキストアイコン
   const worksScrollIcon = document.getElementById('works__scroll-icon');
 
-  //
+  //スキルアイコンリスト
   const svgList = document.querySelectorAll('.skill__icon-svg');
 
   //ヘッダー
   const header = document.getElementById('header');
 
-  //
+  //背景動画ラッパー
   const videoWrap = document.getElementById('bg__video-wrap');
 
-  //
+  //キャッチコピー：日本語
   const catchcopyJa = document.getElementById('mv__catchcopy-ja');
 
-  //
+  //キャッチコピー画像：英語
   const catchcopyEnImg = document.getElementById('mv__catchcopy-en-img');
 
-  //
+  //スクロールボタン
   const scrollBtn = document.getElementById('mv__scroll-btn');
 
-  //
+  //GSAPメディアクエリ
   const mm = gsap.matchMedia();
 
-  //
+  //作品ナビゲーション
   const worksNavWrap = document.getElementById('works__nav-wrap');
 
-  //
+  //現在表示している作品番号
   let currentIndex = -1;
 
-  //
+  //（GSAP固定領域での）現在のスクロール量
   let currentScroll;
 
-  //
+  //スクロール関数保持用
   let scrollToFunction;
 
+  /**
+   * 対象の作品を表示
+   * @param {*} index 表示対象インデックス
+   */
   function updateIndex(index) {
     if (currentIndex === -1 && index === total) {
-      items[index - 1].show();
+      worksItemList[index - 1].show();
       currentIndex = index - 1;
       activeNavLink(currentIndex);
     } else if (currentIndex === -1) {
-      items[index].show();
+      worksItemList[index].show();
       currentIndex = index;
       activeNavLink(currentIndex);
     } else if (index !== currentIndex && index !== total) {
-      items[currentIndex].hide();
-      items[index].show();
+      worksItemList[currentIndex].hide();
+      worksItemList[index].show();
       currentIndex = index;
       activeNavLink(currentIndex);
     }
@@ -130,6 +153,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  /**
+   * ナビゲーションボタンをアクティブ状態にする
+   * @param {*} activeIndex 対象のインデックス
+   */
   function activeNavLink(activeIndex) {
     worksNavBtns.forEach((e, index) => {
       if (index === activeIndex) {
@@ -140,6 +167,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /**
+   * 
+   * @param {*} scrollValue 
+   */
   function setScrollSetting(scrollValue) {
     gsap.to(scrollOuter, {
       scrollTrigger: {
