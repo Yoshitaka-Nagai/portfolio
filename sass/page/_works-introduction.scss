@@ -49,9 +49,10 @@
     }
     .simplebar-track {
       background: $paleGray;
-      width: 10px;
+      width: 12px;
       border-radius: 9999px;
       overflow: unset;
+      opacity: 0.7;
     }
     .simplebar-wrapper {
       height: 100%;
