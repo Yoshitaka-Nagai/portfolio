@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //クラス付与のスクロール位置調整用
   const adjustmentNumber = 0.65;
 
-  //ブレイクポイント：PC
-  const breakPointPc = 1024;
-
   //wrapper
   const wrapper = document.getElementById('wrapper');
 
@@ -32,28 +29,15 @@ document.addEventListener('DOMContentLoaded', function () {
   //js-クラス付与対象リスト
   const jsTargetList = document.querySelectorAll('.js-fadeIn, .js-fadeUp, .js-fadeUpLarge, .js-fadeRight');
 
-  //現在のスクロール量
-  let currentScrollPosition = 0;
-
   //スクロールイベント時処理
   window.addEventListener('scroll', function () {
-    const scrollPosition = window.scrollY;
-
-    if (scrollPosition === 0) {
+    if (window.scrollY === 0) {
       headerLogo.classList.remove('js-hidden');
     } else {
       headerLogo.classList.add('js-hidden');
     }
 
-    if (currentScrollPosition > scrollPosition) {
-      showHeader();
-    } else {
-      hideHeader();
-    }
-    currentScrollPosition = scrollPosition;
-
     headerInit();
-
     setJsTargetActive();
   });
 
@@ -105,11 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //ヘッダー表示
   function showHeader() {
     header.classList.add('js-show');
-  }
-
-  //ヘッダー非表示
-  function hideHeader() {
-    header.classList.remove('js-show');
   }
 
   //対象にクラス付与
