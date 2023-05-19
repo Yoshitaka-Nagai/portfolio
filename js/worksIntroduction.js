@@ -18,11 +18,50 @@ document.addEventListener('DOMContentLoaded', function () {
   //スクロール可能量
   let scrollableValue = totalHeight - scrollAreaHeight;
 
-  //現在のハンドルのTOPからの位置：%
+  //ハンドルの現在のTOPからの位置：%
   let currentThumbPositionPercent = 0;
 
-  //現在のハンドルのTOPからの位置：px
+  //ハンドルの現在のTOPからの位置：px
   let currentThumbPositionPx = 0;
+
+  //ドラッグ制御フラグ
+  let isActive = false;
+
+  //
+  let beforeMoveY;
+
+
+  scrollbarThumb.addEventListener('mousedown', function (e) {
+    isActive = true;
+    beforeMoveY = e.pageY;
+  });
+
+  scrollbarThumb.addEventListener('mousemove', function (e) {
+    if (!isActive) {
+      return;
+    }
+
+    const delta = e.pageY - beforeMoveY;
+    let resultPositionPx = currentThumbPositionPx + delta;
+    if(resultPositionPx < 0){
+      resultPositionPx = 0;
+    }else if(resultPositionPx > scrollAreaHeight){
+      resultPositionPx = scrollAreaHeight;
+    }
+
+    scrollbarThumb.style.top = resultPositionPx + 'px';
+    currentThumbPositionPx = resultPositionPx;
+  });
+
+  scrollbarThumb.addEventListener('mouseup', function () {
+    isActive = false;
+  });
+
+  scrollbarThumb.addEventListener('mouseleave', function () {
+    isActive = false;
+  });
+
+
 
   //ウィンドウのリサイズ時処理
   window.addEventListener('resize', function () {
@@ -43,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //スクロールバーハンドルの位置設定
   function setScrollbarThumbPositon() {
-    //スクロール量
+    //エリア内のスクロール量
     const scrollValue = scrollArea.scrollTop;
 
     //位置の%
