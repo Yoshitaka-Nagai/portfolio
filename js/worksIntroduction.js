@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
   //
   let beforeMoveY;
 
-
   scrollbarThumb.addEventListener('mousedown', function (e) {
     isActive = true;
     beforeMoveY = e.pageY;
@@ -43,9 +42,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const delta = e.pageY - beforeMoveY;
     let resultPositionPx = currentThumbPositionPx + delta;
-    if(resultPositionPx < 0){
+    if (resultPositionPx < 0) {
       resultPositionPx = 0;
-    }else if(resultPositionPx > scrollAreaHeight){
+    } else if (resultPositionPx > scrollAreaHeight) {
       resultPositionPx = scrollAreaHeight;
     }
 
@@ -55,10 +54,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   scrollbarThumb.addEventListener('mouseup', function () {
     isActive = false;
+    console.log('mouseup');
   });
 
   scrollbarThumb.addEventListener('mouseleave', function () {
     isActive = false;
+    console.log('leave');
   });
 
 
