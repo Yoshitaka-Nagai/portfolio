@@ -1,43 +1,51 @@
 //WORKS個別ページ用JS
 document.addEventListener('DOMContentLoaded', function () {
-  //サイトスクリーンショットのスクロールエリア
-  const scrollInner = document.getElementById('site-view__scroll-area');
+  //スクロールエリア
+  const scrollArea = document.getElementById('site-view__scroll-area');
 
   //スクロールバーのハンドル
-  const Thumb = document.getElementById('site-view__scrollbar-thumb');
+  const scrollbarThumb = document.getElementById('site-view__scrollbar-thumb');
 
   //スクロールバー
   const scrollbar = document.getElementById('site-view__scrollbar');
 
   //スクロールエリアの高さ
-  let scrollableHeight = scrollInner.clientHeight;
+  let scrollAreaHeight = scrollArea.clientHeight;
 
   //スクロールエリア内部も含めた高さ
-  let totalHeight = scrollInner.scrollHeight;
+  let totalHeight = scrollArea.scrollHeight;
+
+  //ハンドルの高さ
+  let thumbHeight = scrollbarThumb.clientHeight;
 
   //
-  let barHeight = 10;
+  let scrollbarTrack = scrollAreaHeight - thumbHeight;
 
-  //
-  let scrollbarTrack = scrollableHeight - barHeight;
-
-  //ドラッグ制御フラグ
+  //ハンドル制御フラグ
   let active = false;
 
-  let scrollbar_thumb_cursor_Y;
+  //
+  let scrollbarThumbPositionY;
 
+  //ウィンドウのリサイズ時処理
+  window.addEventListener('resize', function () {
+    //各値の再取得
+    scrollAreaHeight = scrollArea.clientHeight;
+    totalHeight = scrollArea.scrollHeight;
+    thumbHeight = scrollbarThumb.clientHeight;
+    scrollbarTrack = scrollAreaHeight - thumbHeight;
 
+    //ハンドルの位置設定
+    const y = (scrollArea.scrollTop * scrollbarTrack) / (totalHeight - scrollAreaHeight);
+    scrollbarThumb.style.transform = "translate(-50%, " + y + "px)";
+  });
 
-
-
-
-
-  scrollInner.addEventListener('scroll', function () {
+  scrollArea.addEventListener('scroll', function () {
     if (active) {
       return;
     }
-    const y = (scrollInner.scrollTop * scrollbarTrack) / (totalHeight - scrollableHeight);
-    Thumb.style.transform = "translate(-50%, " + y + "px)";
+    const y = (scrollArea.scrollTop * scrollbarTrack) / (totalHeight - scrollAreaHeight);
+    scrollbarThumb.style.transform = "translate(-50%, " + y + "px)";
   }, { passive: true }
   );
 
@@ -45,26 +53,27 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log("click");
     event.preventDefault();
     active = true;
-    var calc = event.layerY - barHeight / 2;
     scrollbar_thumb_Y = event.layerY;
-    var elemElem = scrollbar_thumb_Y - barHeight / 2;
+    var elemElem = scrollbar_thumb_Y - thumbHeight / 2;
     var calc =
-      (totalHeight - scrollableHeight) / (scrollableHeight - barHeight);
+      (totalHeight - scrollAreaHeight) / (scrollAreaHeight - thumbHeight);
     var yy = elemElem * calc;
-    if (elemElem < 0) { elemElem = 0; } else if (elemElem > scrollbarTrack) {
+    if (elemElem < 0) {
+      elemElem = 0;
+    } else if (elemElem > scrollbarTrack) {
       elemElem = scrollbarTrack;
     }
-    Thumb.style.transform = "translate(-50%, " + elemElem + "px)";
-    scrollInner.scrollTop = yy;
+    scrollbarThumb.style.transform = "translate(-50%, " + elemElem + "px)";
+    scrollArea.scrollTop = yy;
     active = false;
   },
     { passive: false }
   );
 
-  Thumb.addEventListener('mousedown', function (event) {
+  scrollbarThumb.addEventListener('mousedown', function (event) {
     console.log("mousedown");
     active = true;
-    scrollbar_thumb_cursor_Y = event.pageY - this.getBoundingClientRect().top;
+    scrollbarThumbPositionY = event.pageY - this.getBoundingClientRect().top;
   },
     { passive: true }
   );
@@ -76,15 +85,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var scrollbar_thumb_Y =
       ((event - scrollbar.getBoundingClientRect().top) / scrollbarTrack) *
       scrollbarTrack -
-      scrollbar_thumb_cursor_Y;
+      scrollbarThumbPositionY;
     var calc =
-      (totalHeight - scrollableHeight) / (scrollableHeight - barHeight);
+      (totalHeight - scrollAreaHeight) / (scrollAreaHeight - thumbHeight);
     var yy = scrollbar_thumb_Y * calc;
-    if (scrollbar_thumb_Y < 0) { scrollbar_thumb_Y = 0; } else if (scrollbar_thumb_Y > scrollbarTrack) {
+    if (scrollbar_thumb_Y < 0) {
+      scrollbar_thumb_Y = 0;
+    } else if (scrollbar_thumb_Y > scrollbarTrack) {
       scrollbar_thumb_Y = scrollbarTrack;
     }
-    Thumb.style.transform = "translate(-50%, " + scrollbar_thumb_Y + "px)";
-    scrollInner.scrollTop = yy;
+    scrollbarThumb.style.transform = "translate(-50%, " + scrollbar_thumb_Y + "px)";
+    scrollArea.scrollTop = yy;
   },
     { passive: false }
   );

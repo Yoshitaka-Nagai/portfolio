@@ -1450,13 +1450,13 @@ body {
 }
 @media screen and (min-width: 1024px) {
   #top .works__item-ttl {
-    font-size: 72px;
+    font-size: 70px;
     margin-bottom: 32px;
   }
 }
 @media screen and (min-width: 1400px) {
   #top .works__item-ttl {
-    font-size: 100px;
+    font-size: 110px;
     margin-bottom: 40px;
   }
 }
@@ -1600,6 +1600,12 @@ body {
 @media screen and (min-width: 1024px) {
   #top .works__nav-wrap {
     justify-content: flex-end;
+    gap: 40px;
+    margin-right: 40px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #top .works__nav-wrap {
     gap: 60px;
     margin-right: 60px;
   }
@@ -1628,10 +1634,12 @@ body {
 }
 @media screen and (min-width: 768px) {
   #top .works__nav-btn {
+    width: 48px;
+    height: 48px;
     font-size: 13px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   #top .works__nav-btn {
     width: 64px;
     height: 64px;
@@ -2298,34 +2306,6 @@ body {
 #works-introduction .site-view__scroll-area::-webkit-scrollbar {
   display: none;
 }
-#works-introduction .site-view .simplebar-scrollbar {
-  width: 20px;
-  height: 20px;
-}
-#works-introduction .site-view .simplebar-scrollbar::before {
-  background: #868686;
-  border-radius: 9999px;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-#works-introduction .site-view .simplebar-scrollbar.simplebar-visible::before {
-  opacity: 1;
-}
-#works-introduction .site-view .simplebar-track {
-  background: #BABABA;
-  width: 20px;
-  border-radius: 9999px;
-  overflow: unset;
-  opacity: 0.7;
-}
-#works-introduction .site-view .simplebar-wrapper {
-  height: 100%;
-}
 #works-introduction .site-view__img {
   display: block;
   width: 100%;
@@ -2333,9 +2313,10 @@ body {
      object-fit: cover;
 }
 #works-introduction .site-view__scrollbar {
+  cursor: pointer;
   position: absolute;
   top: 0;
-  right: -9px;
+  right: -8px;
   width: 1px;
   height: 100%;
   background: #fff;
@@ -2344,7 +2325,7 @@ body {
   content: "Scroll";
   position: absolute;
   right: -16px;
-  top: -2px;
+  top: 0;
   color: #fff;
   font-family: "Oswald", sans-serif;
   font-size: 10px;
@@ -2356,7 +2337,7 @@ body {
     right: -15px;
   }
   #works-introduction .site-view__scrollbar::before {
-    right: -20px;
+    right: -24px;
     font-size: 12px;
   }
 }
@@ -2369,12 +2350,18 @@ body {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #BABABA;
+  background: #868686;
 }
 @media screen and (min-width: 768px) {
   #works-introduction .site-view__scrollbar-thumb {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #works-introduction .site-view__scrollbar-thumb {
+    width: 11px;
+    height: 11px;
   }
 }
 #works-introduction .introduction {
@@ -2642,6 +2629,9 @@ body {
   #works-introduction .introduction__link-txt {
     font-size: 16px;
   }
+}
+#works-introduction .introduction__link-txt.en {
+  font-family: "Oswald", sans-serif;
 }
 #works-introduction .introduction__link-works {
   box-sizing: border-box;
