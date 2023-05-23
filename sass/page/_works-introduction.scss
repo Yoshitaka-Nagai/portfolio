@@ -129,7 +129,7 @@
     }
 
     &__txt {
-      margin-bottom: 80px;
+      margin-bottom: 40px;
       color: $gray;
       font-size: 12px;
       font-weight: 700;
@@ -137,14 +137,27 @@
       letter-spacing: 0.05em;
 
       @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
         font-size: 14px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        margin-bottom: 80px;
       }
     }
 
     &__btn-wrap {
       width: 60%;
       max-width: 250px;
-      margin: 0 auto 80px;
+      margin: 0 auto 40px;
+
+      @media screen and (min-width: 768px) {
+        margin: 0 auto 60px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        margin: 0 auto 80px;
+      }
     }
 
     &__site-link {
