@@ -1,3 +1,4 @@
+//全ページ共通のJS
 document.addEventListener('DOMContentLoaded', function () {
   //ビューポートの高さ
   const windowHeight = window.innerHeight;
@@ -102,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  //ページ表示時アニメーション設定
   function startPageAnimation() {
     wrapper.classList.add('js-active');
   }
@@ -112,6 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
     showHeader();
   }
 
+  //初期処理
   init();
 
 }, false);

@@ -127,10 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //スクロール関数保持用
   let scrollToFunction;
 
-  /**
-   * 対象の作品を表示
-   * @param {*} index 表示対象インデックス
-   */
+  //対象の作品を表示
   function updateIndex(index) {
     if (currentIndex === -1 && index === total) {
       worksItemList[index - 1].show();
@@ -153,10 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  /**
-   * ナビゲーションボタンをアクティブ状態にする
-   * @param {*} activeIndex 対象のインデックス
-   */
+  //ナビゲーションボタンをアクティブ状態にする
   function activeNavLink(activeIndex) {
     worksNavBtns.forEach((e, index) => {
       if (index === activeIndex) {
@@ -167,10 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /**
-   * 
-   * @param {*} scrollValue 
-   */
+  //WORKSのスクロール処理設定
   function setScrollSetting(scrollValue) {
     gsap.to(scrollOuter, {
       scrollTrigger: {
@@ -199,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  //WORKSのナビゲーションボタン設定
   function setScrollNavLink(scrollValue) {
     scrollToFunction = (index, event) => {
       event.preventDefault();
@@ -276,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  //
+  //gsapのメディアクエリ設定
   function setGsapMatchMedia() {
     mm.add("(max-width: 767px)", () => {
       const scrollValue = scrollOuter.clientWidth * 2.1;
@@ -332,6 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initSVG();
   }
 
+  //初期処理
   topInit();
 
 }, false);
