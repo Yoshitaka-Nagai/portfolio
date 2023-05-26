@@ -1,11 +1,11 @@
 //TOPページ用JS
 document.addEventListener('DOMContentLoaded', function () {
-  
+
   //作品クラス
   class WorksItem {
     //作品表示切替用：duration
     duration = 0.8;
-    
+
     //テキスト表示切替用：x方向への移動量
     xMove = "-40px";
 
@@ -72,9 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }
-
-  //ビューポートの高さ
-  const windowHeight = window.innerHeight;
 
   //SVG描画スクロール位置調整用
   const drawAdjustmentNumber = 0.65;
@@ -225,7 +222,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //スキルセクションのsvgアイコン描画処理
   function drawSVG() {
+    //ビューポートの高さ
+    const windowHeight = window.innerHeight;
+
+    //スクロール量
     const st = window.scrollY;
+
     for (let i = 0; i < svgList.length; i++) {
       const targetPos = svgList[i].getBoundingClientRect().top + st;
       if (st > targetPos - windowHeight * drawAdjustmentNumber) {

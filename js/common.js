@@ -1,7 +1,5 @@
 //全ページ共通のJS
 document.addEventListener('DOMContentLoaded', function () {
-  //ビューポートの高さ
-  const windowHeight = window.innerHeight;
 
   //クラス付与のスクロール位置調整用
   const adjustmentNumber = 0.65;
@@ -94,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //対象にクラス付与
   function setJsTargetActive() {
+    const windowHeight = window.innerHeight;
     const st = window.scrollY;
     jsTargetList.forEach((e) => {
       const position = e.getBoundingClientRect().top + st;

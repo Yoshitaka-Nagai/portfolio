@@ -758,7 +758,7 @@
       position: absolute;
       top: 50%;
       right: 0;
-      transform: translateY(-50%);
+      transform: translate(25%, -50%);
       z-index: 1;
 
       @media screen and (min-width: 768px) {
@@ -825,7 +825,7 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       cursor: pointer;
-      transition: background .4s ease-out;
+      transition: background-color .4s ease-out;
 
       @media screen and (min-width: 768px) {
         width: 48px;
@@ -839,12 +839,12 @@
         font-size: 15px;
 
         &:hover {
-          background: $paleGray;
+          background-color: $paleGray;
         }
       }
 
       &.js-active {
-        background: $black;
+        background-color: $black;
       }
     }
 

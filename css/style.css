@@ -1525,7 +1525,7 @@ body {
   position: absolute;
   top: 50%;
   right: 0;
-  transform: translateY(-50%);
+  transform: translate(25%, -50%);
   z-index: 1;
 }
 #top .works__more-link:hover {
@@ -1635,7 +1635,7 @@ body {
   font-weight: 700;
   letter-spacing: -0.03em;
   cursor: pointer;
-  transition: background 0.4s ease-out;
+  transition: background-color 0.4s ease-out;
 }
 @media screen and (min-width: 768px) {
   #top .works__nav-btn {
@@ -1651,11 +1651,11 @@ body {
     font-size: 15px;
   }
   #top .works__nav-btn:hover {
-    background: #BABABA;
+    background-color: #BABABA;
   }
 }
 #top .works__nav-btn.js-active {
-  background: #1D1D1D;
+  background-color: #1D1D1D;
 }
 #top .works__all-btn {
   display: inline-block;
@@ -2598,8 +2598,13 @@ body {
   line-height: 2;
   text-decoration: none;
   position: relative;
-  transition: 0.4s ease-out;
+  transition: 0.4s;
   word-break: break-all;
+}
+@media screen and (min-width: 1024px) {
+  #works-introduction .introduction__table-link:hover {
+    opacity: 0.7;
+  }
 }
 #works-introduction .introduction__nav-wrap {
   margin-bottom: 80px;
