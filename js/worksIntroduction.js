@@ -45,6 +45,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //ハンドル操作時は何もしない
     if (active) return;
 
+    //各値の再取得
+    scrollAreaHeight = scrollArea.clientHeight;
+    totalHeight = scrollArea.scrollHeight;
+    thumbHeight = scrollbarThumb.clientHeight;
+    scrollbarTrack = scrollAreaHeight - thumbHeight;
+
     //スクロール位置からハンドルの位置設定
     const y = (scrollArea.scrollTop * scrollbarTrack) / (totalHeight - scrollAreaHeight);
     scrollbarThumb.style.transform = "translate(-50%, " + y + "px)";
@@ -55,6 +61,12 @@ document.addEventListener('DOMContentLoaded', function () {
   scrollbar.addEventListener('click', function (event) {
     event.preventDefault();
     active = true;
+
+    //各値の再取得
+    scrollAreaHeight = scrollArea.clientHeight;
+    totalHeight = scrollArea.scrollHeight;
+    thumbHeight = scrollbarThumb.clientHeight;
+    scrollbarTrack = scrollAreaHeight - thumbHeight;
 
     //ハンドル位置、エリアのスクロール位置計算
     const scrollbarThumbY = event.layerY;
@@ -84,6 +96,12 @@ document.addEventListener('DOMContentLoaded', function () {
   scrollbarThumb.addEventListener('mousedown', function (event) {
     active = true;
     scrollbarThumbPositionY = event.pageY - this.getBoundingClientRect().top;
+
+    //各値の再取得
+    scrollAreaHeight = scrollArea.clientHeight;
+    totalHeight = scrollArea.scrollHeight;
+    thumbHeight = scrollbarThumb.clientHeight;
+    scrollbarTrack = scrollAreaHeight - thumbHeight;
   },
     { passive: true }
   );
@@ -92,6 +110,12 @@ document.addEventListener('DOMContentLoaded', function () {
   scrollbarThumb.addEventListener('touchstart', function (event) {
     active = true;
     scrollbarThumbPositionY = event.touches[0].pageY - this.getBoundingClientRect().top;
+
+    //各値の再取得
+    scrollAreaHeight = scrollArea.clientHeight;
+    totalHeight = scrollArea.scrollHeight;
+    thumbHeight = scrollbarThumb.clientHeight;
+    scrollbarTrack = scrollAreaHeight - thumbHeight;
   },
     { passive: true }
   );

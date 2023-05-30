@@ -15,7 +15,6 @@
   &.js-show {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: all;
   }
 
   @media screen and (min-width: 1024px) {
@@ -48,6 +47,7 @@
     font-size: 32px;
     font-weight: 700;
     letter-spacing: -0.03em;
+    pointer-events: all;
     transition: opacity 0.4s;
 
     &.js-black {

@@ -8,6 +8,7 @@
   align-items: center;
   position: relative;
   z-index: 9999;
+  pointer-events: all;
 
   &.js-opened {
 
